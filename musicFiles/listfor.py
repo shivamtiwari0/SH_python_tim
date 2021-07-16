@@ -2,8 +2,11 @@ print(__file__)
 
 numbers = [1, 2, 3, 4, 5, 6]
 
-squares = []
-for number in numbers:
-    squares.append(number ** 2)
+number = int(input("Please enter a no and I'll tell you it's square: "))
 
-print(squares)
+squares = []
+for num in numbers:
+    squares.append(num ** 2)
+
+index_pos = numbers.index(number)
+print(squares[index_pos])
