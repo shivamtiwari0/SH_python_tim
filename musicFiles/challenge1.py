@@ -16,7 +16,7 @@ print(output)
 # The for loop would look like this (note the extra parentheses, so
 # that we get tuples in the list):
 
-output2 = [(x, len(x)) for x in text.split()]
+output2 = {(x, len(x)) for x in text.split()}
 # for x in text.split():
 #     output.append((x, len(x)))
 
