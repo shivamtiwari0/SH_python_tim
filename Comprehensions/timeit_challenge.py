@@ -1,27 +1,27 @@
 import timeit
+from statistics import mean, stdev
 
 
 def fact(n):
     result = 1
     if n > 1:
-        for f in range(2, n +1):
+        for f in range(2, n + 1):
             result *= f
-    # return result
-    print(result)
+    return result
 
 
 def factorial(n):
     if n <= 1:
-        # return 1
-        print(1)
+        return 1
     else:
-        # return n * factorial(n-1)
-        print(n * factorial(n-1))
-fact(30)
-factorial(30)
+        return n * factorial(n - 1)
 
 
-result_1 = timeit.timeit(fact, globals=globals(), number=1000)
-result_2 = timeit.timeit(factorial, globals=globals(), number=1000)
-print(result_1)
-print(result_2)
+if __name__ == "__main__":
+    # print(timeit.timeit("x=fact(130)", setup="from __main__ import fact", number=10000))
+    list1 = timeit.repeat("x=fact(130)", setup="from __main__ import fact", number=10000, repeat=6)
+    # print(timeit.timeit("y = factorial(130)", setup="from __main__ import factorial", number=10000))
+    list2 = timeit.repeat("y = factorial(130)", setup="from __main__ import factorial", number=10000, repeat=6)
+
+    print(mean(list1), stdev(list1))
+    print(mean(list2), stdev(list2))
